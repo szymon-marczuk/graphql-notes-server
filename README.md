@@ -1,6 +1,6 @@
 # graphql-notes-server
 
-###In order to run this server run:
+### In order to run this server run:
 
 npm install
 npm start

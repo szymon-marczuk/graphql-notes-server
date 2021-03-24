@@ -7,16 +7,8 @@ import { NoteResolver } from "./resolvers/NoteResolver";
 
 (async () => {
   const corsOptions = {
-    origin: (origin: any, callback: any) => {
-      const whitelist = ["http://localhost:4000"];
-
-      if (whitelist.indexOf(origin) !== -1) {
-        callback(null, true);
-      } else {
-        callback(new Error("Not allowed by CORS"));
-      }
-    },
-    credentials: true,
+    origin: "*",
+    credentials: false,
   };
   const app = express();
   const options = await getConnectionOptions(

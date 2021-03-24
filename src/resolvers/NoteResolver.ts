@@ -1,12 +1,12 @@
 import { Note } from "../entity/Note";
 import { Arg, Int, Mutation, Query, Resolver } from "type-graphql";
-
 @Resolver()
 export class NoteResolver {
-  @Mutation(() => Boolean)
+  @Mutation(() => Note)
   async createNote(@Arg("content") content: string) {
-    Note.insert({ content });
-    return true;
+    const note = await Note.create({ content }).save();
+    console.log(note);
+    return note;
   }
 
   @Mutation(() => Boolean)
